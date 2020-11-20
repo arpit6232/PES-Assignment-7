@@ -47,13 +47,13 @@ Developed using MCUExpresso on Linux. <br />
 ## Images of the OUTPUT on terminal 
 
 - 587 Hz <br />
-![picture](Images/587.png)
+![picture](Images/_587_.png)
 
 - 659 Hz <br />
-![picture](Images/659.png)
+![picture](Images/_659_.png)
 
 - 880 Hz <br />
-![picture](Images/880.png)
+![picture](Images/_880_.png)
 
 ## Extra Credit 
 - Ossiloscope Images Attached to with Wrap Functionality Checked for
