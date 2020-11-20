@@ -1,0 +1,3 @@
+ADC.c:24:6:TPM1_Init_	16	static
+ADC.c:51:6:ADC_Init_	8	static
+ADC.c:83:6:ADC_Buffer	24	static
