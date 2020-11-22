@@ -47,13 +47,13 @@ Developed using MCUExpresso on Linux. <br />
 ## Images of the OUTPUT on terminal 
 
 - 440 Hz <br />
-![picture](Images/FourForty.jpeg)
+![picture](Images/FourForty.png)
 
 - 587 Hz <br />
-![picture](Images/FiveEightySeven.jpeg)
+![picture](Images/FiveEightySeven.png)
 
 - 659 Hz <br />
-![picture](Images/SixFifityNine.jpeg)
+![picture](Images/SixFifityNine.png)
 
 - 880 Hz <br />
 ![picture](Images/EightEighty.png)
