@@ -9,7 +9,7 @@ memory access (DMA) subsystem.
 
 contact arpit.savarkar@colorado.edu
 
-### Repository for PES-Assignment 6
+### Repository for PES-Assignment 7
 
 Source Code for this assignment can be found under source/
 
