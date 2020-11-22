@@ -49,7 +49,7 @@
 #include "test_sin.h"
 
 #define ADC_FREQ 96000
-
+#define SIZE 1024
 /*
  * @brief   Application entry point.
  */
@@ -65,7 +65,7 @@ int main(void) {
 #endif
 
     int samples, i=0;
-    uint16_t output[1024], input[1024];
+    uint16_t output[SIZE], input[SIZE];
     int frequencies[] = {440, 587, 659, 880};
     DAC_Init_();
     DMA_Init_();
