@@ -2,7 +2,18 @@
  * fp_sine.c
  *
  *  Created on: Nov 12, 2020
- *      Author: root
+ *      Author: Arpit Savarakr / arpit.savarkar@colorado.edu
+ *
+ *   I would sincerely like to thank Howdy Peirece for sharing this section of the code.
+ *
+ *   @brief: Loopup Table setup and Integer Based Sine Function calculator
+ *
+ *     Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 #include "fp_sine.h"

@@ -1,37 +1,27 @@
-/*
- * Copyright 2016-2020 NXP
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * o Redistributions of source code must retain the above copyright notice, this list
- *   of conditions and the following disclaimer.
- *
- * o Redistributions in binary form must reproduce the above copyright notice, this
- *   list of conditions and the following disclaimer in the documentation and/or
- *   other materials provided with the distribution.
- *
- * o Neither the name of NXP Semiconductor, Inc. nor the names of its
- *   contributors may be used to endorse or promote products derived from this
- *   software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
- 
+/******************************************************************************
+*​​Copyright​​ (C) ​​2020 ​​by ​​Arpit Savarkar
+*​​Redistribution,​​ modification ​​or ​​use ​​of ​​this ​​software ​​in​​source​ ​or ​​binary
+*​​forms​​ is​​ permitted​​ as​​ long​​ as​​ the​​ files​​ maintain​​ this​​ copyright.​​ Users​​ are
+*​​permitted​​ to ​​modify ​​this ​​and ​​use ​​it ​​to ​​learn ​​about ​​the ​​field​​ of ​​embedded
+*​​software. ​​Arpit Savarkar ​​and​ ​the ​​University ​​of ​​Colorado ​​are ​​not​ ​liable ​​for
+*​​any ​​misuse ​​of ​​this ​​material.
+*
+******************************************************************************/
 /**
- * @file    Getting In Tune.c
- * @brief   Application entry point.
- */
+ * @file Getting in Tune.c
+ * @brief This file provides functions prototypes and abstractions to mathematically generate four pure tones in the form of analog signals memory access (DMA) subsystem.
+ *
+ * @author Arpit Savarkar
+ * @date November 24 2020
+ * @version 1.0
+
+  Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+
+*/
 #include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
@@ -73,8 +63,12 @@ int main(void) {
     TPM1_Init_(ADC_FREQ);
     ADC_Init_();
 
-//    test_sine();
+    PRINTF("Testing Sine function errors. Please wait...\r\n");
+    test_sine();
+    PRINTF("\r\n Sine error bounds Computed\r\n");
 
+
+    // Infinite Loop to Run through the frequencies
     for(i = 0; i<=4; i++) {
     	if(i==4) {
 			i=0;

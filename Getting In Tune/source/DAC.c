@@ -2,7 +2,19 @@
  * DMA.c
  *
  *  Created on: Nov 13, 2020
- *      Author: root
+ *      Author: Arpit Savarkar / arpit.savarkar@colorado.edu
+ *
+ *   @brief: This module will contain the necessary configuration and runtime
+code that allows you to pass your computed buffer of audio samples into the module. The
+module will use the KL25Z’s DAC, TPM0, and DMA hardware to repeatedly play out the buffer
+without further intervention from your main loop.
+
+  Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+
  */
 
 #include "DAC.h"
@@ -27,6 +39,8 @@ static uint32_t count = 0;
  *   void
  */
 void DAC_Init_() {
+
+	// Clock Gating
 	SIM->SCGC6 |= SIM_SCGC6_DAC0_MASK; // DAC
 	SIM->SCGC5 |= SIM_SCGC5_PORTE_MASK;
 
@@ -34,10 +48,11 @@ void DAC_Init_() {
 	PORTE->PCR[DAC0_PIN] &= ~PORT_PCR_MUX_MASK;
 	PORTE->PCR[DAC0_PIN] |= PORT_PCR_MUX(3);
 
-	// Basic Setup
+	// // Not using DAC0 buffer, disable to use buffer
     DAC0->C1 = 0;
     DAC0->C2 = 0;
 
+    // Set DAC0 to reference voltage from VDDA
     DAC0->C0 = DAC_C0_DACEN_MASK | DAC_C0_DACRFS_MASK;
 
 }
@@ -53,14 +68,14 @@ void DAC_Init_() {
  */
 void DMA_Init_() {
 
-	// Obviously gotta Gate Clock (Dummy)
+	//  Gate Clock
 	SIM->SCGC7 |= SIM_SCGC7_DMA_MASK;
 	SIM->SCGC6 |= SIM_SCGC6_DMAMUX_MASK;
 
 	// Disabbling for Configuration
 	DMAMUX0->CHCFG[0] = 0;
 
-	// Interrupt Setup
+	// interrupt once done, increment src, src size: 16 bits, dest size: 16 bits, enable requests, enable DMA0
 	DMA0->DMA[0].DCR = DMA_DCR_EINT_MASK | DMA_DCR_SINC_MASK | DMA_DCR_SSIZE(2) | DMA_DCR_DSIZE(2) | DMA_DCR_ERQ_MASK | DMA_DCR_CS_MASK;
 
 	// NVIC Config
@@ -97,6 +112,7 @@ void TPM0_Init_() {
 	TPM0->MOD = TPM_MOD_MOD(SYS_CLOCK / (SYS_CLOCK/1000));
 	TPM0->CNT = 0;
 
+	// TPM Source Configuration
 	TPM0->SC = TPM_SC_PS(0) | TPM_SC_CPWMS(0) | TPM_SC_CMOD(1) | TPM_SC_DMA_MASK;
 }
 
@@ -113,15 +129,19 @@ void TPM0_Init_() {
  */
 void DAC_begin(uint16_t *frq, uint32_t cnt){
 
+	// TPM Disable
 	TPM0->SC &= ~TPM_SC_CMOD_MASK;
+
 	// For interfacing with the global count function
 	count = cnt;
 
+	// Memory copy to buffer
 	memcpy(buffer, frq, cnt*2);
 
 	// Begin Configuration
 	TPM0->SC |= TPM_SC_CMOD(1);
 
+	// Configure the src and dest registers
 	DMA0->DMA[0].SAR = DMA_SAR_SAR((uint32_t) buffer);
 	DMA0->DMA[0].DAR = DMA_DAR_DAR((uint32_t) (&(DAC0->DAT[0])));
 

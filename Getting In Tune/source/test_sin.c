@@ -2,7 +2,16 @@
  * test_sin.c
  *
  *  Created on: Nov 14, 2020
- *      Author: root
+ *      Author: Arpit Savarakr / arpit.savarkar@colorado.edu
+ *
+ *   @brief: Contains function to test if the sine data generated from fp_sine.c is within error bounds
+ *
+ *     Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 
@@ -30,5 +39,5 @@ if (err > max_err)
 max_err = err;
 sum_sq += err*err;
 }
-PRINTF("max_err=%f sum_sq=%f\n", max_err, sum_sq);
+PRINTF("max_err=%d sum_sq=%d\n", (int)max_err, (int)sum_sq);
 }

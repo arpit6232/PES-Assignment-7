@@ -2,7 +2,15 @@
  * util.c
  *
  *  Created on: Nov 14, 2020
- *      Author: root
+ *      Author: Arpit Savarkar / arpit.savarkar@colorado.edu
+ *     @brief: Sets up some utility functions for ADC and DAC analysis
+ *
+ *       Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 

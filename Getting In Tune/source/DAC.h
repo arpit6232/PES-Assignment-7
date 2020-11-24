@@ -2,7 +2,16 @@
  * DMA.h
  *
  *  Created on: Nov 13, 2020
- *      Author: root
+ *      Author: Arpit Savarkar / arpit.savarkar@colorado.edu
+ *
+ *    @brief: Header file of DAC.c buffer functionalities and #defines for DAC
+ *
+ *     Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 #ifndef DAC_H_

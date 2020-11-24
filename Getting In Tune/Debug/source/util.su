@@ -1,2 +1,2 @@
-util.c:34:8:tone_to_samples	56	static
-util.c:66:6:analysis	56	static
+util.c:42:8:tone_to_samples	56	static
+util.c:74:6:analysis	56	static

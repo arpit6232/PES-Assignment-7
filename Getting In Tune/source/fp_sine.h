@@ -2,7 +2,16 @@
  * fp_sine.h
  *
  *  Created on: Nov 12, 2020
- *      Author: root
+ *      Author: Arpit Savarakr / arpit.savarkar@colorado.edu
+ *
+ *   @brief Header file for fp_sine.c Initializes the Lookup Table
+ *
+ *     Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 #ifndef FP_SINE_H_

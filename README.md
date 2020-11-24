@@ -4,8 +4,7 @@ Author: Arpit Savarkar
 ## Repository Comments 
 _Contains_
 Code for Assignment 7 for Principals of Embedded Systems Software, ECEN-5813, Fall 2020
-Only DEBUG Target is considered for this assignment whose goal is mathematically generate four pure tones in the form of analog signals.
-memory access (DMA) subsystem.
+Only DEBUG Target is considered for this assignment whose goal is mathematically generate four pure tones in the form of analog signals memory access (DMA) subsystem.
 
 contact arpit.savarkar@colorado.edu
 

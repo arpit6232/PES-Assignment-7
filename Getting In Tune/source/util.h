@@ -3,6 +3,15 @@
  *
  *  Created on: Nov 14, 2020
  *      Author: root
+ *
+ *     @brief: Header file for util.c , Sets up some utility functions for ADC and DAC analysis
+ *
+ *       Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 #ifndef UTIL_H_

@@ -2,7 +2,16 @@
  * ADC.c
  *
  *  Created on: Nov 14, 2020
- *      Author: root
+ *      Author: Arpit Savarkar
+ *   @brief: This module will contain the necessary configuration and runtime code
+to capture a number of input samples at the capture sampling frequency specified above.
+
+  Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+
  */
 
 #include "MKL25Z4.h"
@@ -52,10 +61,10 @@ void ADC_Init_() {
 	// Gating
 	SIM->SCGC6 |= SIM_SCGC6_ADC0_MASK;
 
-	// Shorter sample time, 16 bit single-ended
+	// normal power mode, no clock divide, long sampling enabled, 16-bit conversion (single-ended), use bus clock
 	ADC0->CFG1 = ADC_CFG1_ADLPC(0) | ADC_CFG1_ADIV(0) | ADC_CFG1_ADLSMP(0) | ADC_CFG1_MODE(3) | ADC_CFG1_ADICLK(0);
 
-	// Setting this to all default values
+	// Set the ADC0 configuration 2 register
 	ADC0->CFG2 = 0;
 
 	// DMA initially disabled
@@ -64,7 +73,7 @@ void ADC_Init_() {
 	// Input Channel for DAC is the input for ADC
 	ADC0->SC1[0] = ADC_SC1_AIEN(0) | ADC_SC1_DIFF(0) | ADC_SC1_ADCH(23);
 
-	// Just some TPM1 things
+	// Enable ADC0 triggering from TPM1 overflow
 	SIM->SOPT7 = SIM_SOPT7_ADC0ALTTRGEN(1) | SIM_SOPT7_ADC0TRGSEL(9);
 
 }

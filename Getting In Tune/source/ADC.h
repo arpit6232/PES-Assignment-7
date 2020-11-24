@@ -2,7 +2,16 @@
  * ADC.h
  *
  *  Created on: Nov 14, 2020
- *      Author: root
+ *      Author: Arpit Savarkar
+ *
+ *  @brief: Header file of ADC.c the buffer functionalities and #defines for ADC
+ *
+ *    Sources of Reference :
+  Textbooks : Embedded Systems Fundamentals with Arm Cortex-M based MicroControllers
+
+  I would like to thank Howdy Pierce, Rakesh Kumar, Saket Penurkar for their
+  support during this assignment.
+ *
  */
 
 #ifndef ADC_H_
